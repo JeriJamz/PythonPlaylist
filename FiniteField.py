@@ -22,4 +22,13 @@ class FieldElement:
 	    raise TypeError('Cannot add these two numbers. They are from diffrent fields.')
 	num = (self.num + other.num) % self.prime# num = (x+b) % e
 	return self.__class__(num, self.prime)#this returns the class FieldElement
+	
+	#idk if the Minus gone work. I wanted to try it without the book
+     def __minus__(self, other):
+	if self.prime != other.prime:
+	    raise TypeError('These two numbers are not in the same field. We cannot add them.\n')
+	num = (self.num - other.num)% self.prime
+	print('0')
+	return __class__(num, self.prime)
+	
 
