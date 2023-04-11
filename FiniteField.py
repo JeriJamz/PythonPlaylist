@@ -25,10 +25,27 @@ class FieldElement:
 	
 	#idk if the Minus gone work. I wanted to try it without the book
      def __minus__(self, other):
-	if self.prime != other.prime:
-	    raise TypeError('These two numbers are not in the same field. We cannot add them.\n')
-	num = (self.num - other.num)% self.prime
-	print('0')
-	return __class__(num, self.prime)
-	
+	    if self.prime != other.prime:
+	        raise TypeError('These two numbers are not in the same field. We cannot add them.\n')
+	    num = (self.num - other.num)% self.prime
+	    print('0')
+	    return __class__(num, self.prime)
+    
+    #same with this inher
+    def __mul__(self, other):
+        if self.prime != other.prime:
+            print('These Two number cannot be Multiplied. They are not in the same field\n')
+        num = (self.num * other.num)% self.prime
+        return __class__(num,self.prime)
+
+    #now we're back to book work
+    def __pow__(self, exponent):
+        n = exponenet
+        while n < 0:
+            n +=  self.prime - 1
+        num = pow(self.num, n, self.prime)
+        return self.__class__(num, self.prime)
+    
+
+
 
