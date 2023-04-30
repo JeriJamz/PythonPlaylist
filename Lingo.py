@@ -24,7 +24,7 @@ class Error:
     def as_string(self):
         result = f'{self.error_name}: {self.details}'#should return the error name: details
         result += f'File {self.pos_start.fn}, line {self.pos_start.ln + 1}'
-        return result
+        Return result
 
 class IllegalCharError(Error):
     def __init__(self, pos_start, pos_end, details):
@@ -50,10 +50,10 @@ class Position:
             self.ln += 1 
             self.col = 0
 
-        return self
+        Return self
     
     def copy(self):
-        return Position(self.idx, self.ln, self.col, self.fn, self.ftxt)
+        Return Position(self.idx, self.ln, self.col, self.fn, self.ftxt)
 
 #########################
 # TOKENS
@@ -79,7 +79,7 @@ class Tokens:
 
     def __repr__(self):
         if self.value: return f'{self.type}:{self.value}'#if token has a value it will print the 'type:value'
-        return f'{self.type}'#if it doesnt have a value it will print jus the type
+        Return f'{self.type}'#if it doesnt have a value it will print jus the type
 
 ############################
 #LEXER
@@ -129,9 +129,9 @@ class Lexer:#this is what read the text
                 pos_start = self.pos.copy()
                 char = self.current_char
                 self.adv()
-                return [], IllegalCharError(pos_start, self.pos,"' " + char +" '")
+                Return [], IllegalCharError(pos_start, self.pos,"' " + char +" '")
 
-        return tokens, None
+        Return tokens, None
 
 
     def make_number(self):
@@ -160,7 +160,7 @@ class NumberNode:
     def __init__(self, tok):
         self.tok = tok
     def __repr__(self):
-        return f"{self.tok}"
+        Return f"{self.tok}"
 
 class BinOpNode:
     def __init__(self, lft_node,op_tok, rgt_node):
@@ -169,7 +169,7 @@ class BinOpNode:
         self.rgt_node = rgt_node
     
     def __repr__(self):
-        return f'({self.lft_node}, {op_tok}, {rgt_node})'
+        Return f'({self.lft_node}, {op_tok}, {rgt_node})'
 
 ##########################
 #PARSER
@@ -185,13 +185,13 @@ class Parser:
         self.tok_idx += 1
         if self.tok_idx < len(self.tokens):
             self.current_tok = self.tokens[self.tok_idx]
-        return self.current_tok
+        Return self.current_tok
 
 #######################
 
     def parse(self):
         res = self.expr()
-        return res
+        Return res
 
 
     def factor(self):
@@ -199,13 +199,13 @@ class Parser:
 
         if tok_type in  (TT_INT, TT_FLOAT):
             self.adv()
-            return NumberNode(tok)
+            Return NumberNode(tok)
     
     def term(self):
-        return self.bin_op(self.factor, (TT_MUl, TT_DIV))
+        Return self.bin_op(self.factor, (TT_MUl, TT_DIV))
     
     def expr(self):
-        return self.bin_op(self.term, (TT_PLUS, TT_MINUS))
+        Return self.bin_op(self.term, (TT_PLUS, TT_MINUS))
 
     def bin_op(self, func, ops):
         lft = func()
@@ -216,7 +216,7 @@ class Parser:
             rgt = func()
             lft = BinOpNode(lft,op_tok, rgt)
 
-        return lft
+        Return lft
 
 ############################
 #Run
@@ -226,13 +226,13 @@ def run(fn, text):
     #this makes tokens
     lexer = Lexer(fn, text)
     tokens, error =  lexer.make_tokens()   
-    if error: return None, error
+    if error: Return None, error
 
     #this makes the AST
     parser = Parser(tokens)
     ast = parser.parse()
 
-    return ast, None
+    Return ast, None
 
 delay_print('This a go again\n'
 'All you can put in is number and (+,*,/,-)'
