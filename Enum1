@@ -19,15 +19,15 @@ def kqp(a):#kqp is kinda quick print
 		time.sleep(.5)
 
 class weekday(Enum):
-	Sunday = 1
-	Monday = 2
+	Sunday = 1  #so enum is really fancy singletons. It works with best with values that move in sequential order
+	Monday = 2#as you see
 	Tuesday = 3
 	Wensday = 4
 	Thursday = 5
 	Friday = 6
 	Saturday = 7
-	def DayofTheWeek(cls, date):
-		return cls(date.isoweekday())
+	def DayofTheWeek(cls, date):#thing that makes it a little diffrent is you can attach "behaviors"
+		return cls(date.isoweekday())# Yea this is really it. I think this is a good explination for right now. Stay tuned
 
 kqp("Welcome\n")
 qp("*****Loa")
@@ -40,7 +40,7 @@ response = input()
 
 if response.lower() == "Day Of The Week":
 	print(weekday.DayofTheWeek(date.today()))
-else:
+else:#idk know if this work but I program so hey. Good luck when you compile
 	kqp("We aint got that many options shawty\n")
 	sys.exit()
 
