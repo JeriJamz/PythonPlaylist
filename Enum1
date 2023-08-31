@@ -1,0 +1,49 @@
+#working on Enum
+#MY SOUL HURT TAKE 2
+import sys, time
+from datetime import date
+
+
+
+
+def qp(z):#qp is for quick print
+	for x in z:
+		sys.stdout.write(x)#nah I aint read doc over this but I program so... Tech Talk on it later
+		sys.stdout.flush()
+		time.sleep(.08)
+
+def kqp(a):#kqp is kinda quick print
+	for b in a:
+		sys.stdout.write(b)
+		sys.stdout.flush()
+		time.sleep(.5)
+
+class weekday(Enum):
+	Sunday = 1
+	Monday = 2
+	Tuesday = 3
+	Wensday = 4
+	Thursday = 5
+	Friday = 6
+	Saturday = 7
+	def DayofTheWeek(cls, date):
+		return cls(date.isoweekday())
+
+kqp("Welcome\n")
+qp("*****Loa")
+kqp("din....g Menu\n")
+print("Done!")
+
+print("Day Of The Week\n")
+qp("Enter a Menu Option")
+response = input()
+
+if response.lower() == "Day Of The Week":
+	print(weekday.DayofTheWeek(date.today()))
+else:
+	kqp("We aint got that many options shawty\n")
+	sys.exit()
+
+
+
+
