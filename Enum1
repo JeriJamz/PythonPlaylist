@@ -2,7 +2,7 @@
 #MY SOUL HURT TAKE 2
 import sys, time
 from datetime import date
-
+# trynna not to update this every 5 mins but new idea be poppin up
 
 
 def qp(z):#qp is for quick print
@@ -40,7 +40,7 @@ qp("*****Loa")
 kqp("din....g Menu\n")
 print("Done!")
 
-print("***Day Of The Week\n***Add Chores")
+print("***Day Of The Week\n***Add Chores\n***Show ToDo")
 qp("Enter a Menu Option")
 response = input()
 
@@ -56,7 +56,8 @@ elif response.lower() == "Add Chore":
 	qp("Which day would you like to be reminded\n")
 	DayOvWeek = input(weekday)#Maybe I need to add Weekday?
     ToDo4TheWeek.update(addChoreResponse:DayOvWeek)
-		
+elif response.lower() == "Show ToDo":
+	print(show_2Do)#not good enough, want it to pull certain days
 else:#idk know if this work but I program so hey. Good luck when you compile
 	kqp("We aint got that many options shawty\n")
 	sys.exit()
