@@ -34,16 +34,26 @@ qp("*****Loa")
 kqp("din....g Menu\n")
 print("Done!")
 
-print("Day Of The Week\n")
+print("***Day Of The Week\n***Add Chores")
 qp("Enter a Menu Option")
 response = input()
 
+ToDo4TheWeek ={#want user input to add to this
+
+	'1':,
+	'2':,
+	'3':,
+
+}
+
 if response.lower() == "Day Of The Week":
 	print(weekday.DayofTheWeek(date.today()))
+elif response.lower() == "Add Chore":
+    qp("What is the name of the chore?")
+	addChoreResponse = input()
+    for x in ToDo4TheWeek:
+		
 else:#idk know if this work but I program so hey. Good luck when you compile
 	kqp("We aint got that many options shawty\n")
 	sys.exit()
-
-
-
 
