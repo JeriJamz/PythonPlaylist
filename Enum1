@@ -28,7 +28,12 @@ class weekday(Enum):
 	def DayofTheWeek(cls, date):#thing that makes it a little diffrent is you can attach "behaviors"
 		return cls(date.isoweekday())# Yea this is really it. I think this is a good explination for right now. Stay tuned
 
-#See if this loop will add to the dictop
+#gonna try and show todo
+def show_2Do(ToDo, days):#Lil Bookwrk
+	for ToDo,days in ToDo.items():
+		if day in days:
+			return ToDo
+	show_2Do(ToDo4TheWeek, isoweekday())
 
 kqp("Welcome\n")
 qp("*****Loa")
